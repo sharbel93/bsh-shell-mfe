@@ -1,0 +1,8 @@
+:root{
+  --bg:#201f2b; --surface:#1b1a26; --stroke:#3b3a48;
+  --text:#f3f2f1; --muted:#a19fae;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--text);
+  font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;}
