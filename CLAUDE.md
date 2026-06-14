@@ -40,7 +40,7 @@ projects/
 
 ## Hard rules (do not break federation)
 1. **Shared singletons.** Angular packages are shared as singletons in each
-   `federation.config.mjs` via `shareAll`. Never bump a shared dependency in one
+   `federation.config.js` via `shareAll`. Never bump a shared dependency in one
    remote only; version skew breaks runtime sharing. Update all projects together.
 2. **Remotes expose route definitions**, not components: `exposes: { './Routes': '.../app.routes.ts' }`.
    The shell mounts them with `loadRemoteModule({ remoteName, exposedModule: './Routes' })` in `loadChildren`.
@@ -54,7 +54,7 @@ projects/
 npx ng generate application todo --style=scss --ssr=false --skip-tests
 npx ng g @angular-architects/native-federation:init --project todo --type remote --port 4203
 # expose routes:
-#   projects/todo/federation.config.mjs -> exposes: { './Routes': './projects/todo/src/app/app.routes.ts' }
+#   projects/todo/federation.config.js -> exposes: { './Routes': './projects/todo/src/app/app.routes.ts' }
 #   projects/todo/src/app/app.routes.ts -> export const routes = [{ path: '', component: Todo }]
 # register in shell:
 #   projects/shell/public/federation.manifest.json -> "todo": "http://localhost:4203/remoteEntry.json"
